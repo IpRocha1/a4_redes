@@ -1,3 +1,4 @@
+#Importa do modulo socket
 import socket
 
 class TCPClient:
@@ -7,6 +8,8 @@ class TCPClient:
 
         #Cria o socket TCP
         self.clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        #Conecta o socket ao host e porta especificados
         self.clientSocket.connect((self.host,int(self.port)))        
 
     def start(self):
@@ -26,8 +29,10 @@ class TCPClient:
             cont += 1
 
 if __name__ == '__main__':
-    #Endereço IP e porta do servidor
+    #Pede ao usuario o endereço IP e porta do servidor
     ip_port = input("Host/IP Port [Default: localhost 8080]: ") or 'localhost 8080'
     HOST, PORT = ip_port.split()
+
+    #Instancia o objeto TCPClient e inicia a conexao
     tcpClient = TCPClient(HOST,PORT)
     tcpClient.start()
