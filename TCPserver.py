@@ -23,7 +23,6 @@ class TCPServer:
 
 if __name__ == '__main__':
     ip_port = input("Host/IP Port [Default: localhost 8080]: ") or 'localhost 8080'
-    #PORT = input("Port [Default: 8080]: ") or 8080
     HOST, PORT = ip_port.split()
     tcpServer = TCPServer(HOST, PORT)
     tcpServer.start()
